@@ -31,7 +31,16 @@ D;JEQ  //if no key pressed take the program to label WHITE
 @SCREEN  //loads first address of the screen
 D=A
 @R0
-A=D+M
-M=0
+A=D+M  //to find the pixel to fill, adding the screen address with the index which is R0
+M=0  //fills white in the pixels
+@LOOP
+0;JMP
+
+(BLACK)
+@SCREEN  //loads first address of the screen
+D=A
+@R0
+A=D+M  //to find the pixel to fill, adding the screen address with the index which is R0
+M=-1  //fills black in the pixels
 @LOOP
 0;JMP

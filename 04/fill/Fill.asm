@@ -13,6 +13,7 @@
 
 // Put your code here.
 
+(INITIALIZE)
 //initialize R0 to 8192 which is 32*256
 @8192
 D=A //D=8192
@@ -20,15 +21,20 @@ D=A //D=8192
 M=D  // R1 = 8192
 
 (LOOP)  //loop that checks for whether to fill black or white in each pixel
+//decremneting the index which is R0
+@R0
+M=M-1  // R0=R0-1
+D=M
+@INITIALIZE
+D;JLT
+
 @KBD	//loads the keyboard's address
 D=M
 @WHITE  
 D;JEQ  //if no key pressed take the program to label WHITE
 @BLACK
 0;JMP  //if a key is pressed take the program to label BLACK
-//decremneting the index which is R0
-@R0
-M=M-1  // R0=R0-1
+
 
 (WHITE)
 @SCREEN  //loads first address of the screen

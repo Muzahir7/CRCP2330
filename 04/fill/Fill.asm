@@ -32,6 +32,6 @@ D;JEQ  //if no key pressed take the program to label WHITE
 D=A
 @R0
 A=D+M
-M=-1
+M=0
 @LOOP
 0;JMP

@@ -19,3 +19,10 @@ D=A //D=8192
 @R0
 M=D  // R1 = 8192
 
+(LOOP)  //loop that checks for whether to fill black or white in each pixel
+@KBD	//loads the keyboard's address
+D=M
+@WHITE  
+D;JEQ  //if no key pressed take the program to label WHITE
+@BLACK
+0;JMP  //if a key is pressed take the program to label BLACK

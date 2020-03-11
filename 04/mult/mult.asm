@@ -12,3 +12,8 @@
 @R2  //A=2
 M=0 //R2 = 0
 
+//Check for the condition if the value in R1 is less than 0. If yes, make the program jum to end
+@R1  //A=1
+D=M  //D register holds the value of R1
+@END  //label usage of the label END
+D;JLT  //jump to Label END if val. of R1 < 0

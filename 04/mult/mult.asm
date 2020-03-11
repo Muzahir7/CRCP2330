@@ -33,3 +33,7 @@ M=M-1 // R=R1-1
 //make the program jump back to the LOOP
 @LOOP
 0;JMP //goto LOOP
+
+(END) //infinite loop for the end of the program
+@END
+0;JMP

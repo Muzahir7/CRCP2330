@@ -26,6 +26,9 @@ D=M
 D;JEQ  //if no key pressed take the program to label WHITE
 @BLACK
 0;JMP  //if a key is pressed take the program to label BLACK
+//decremneting the index which is R0
+@R0
+M=M-1  // R0=R0-1
 
 (WHITE)
 @SCREEN  //loads first address of the screen

@@ -12,3 +12,10 @@
 // the screen should remain fully clear as long as no key is pressed.
 
 // Put your code here.
+
+//initialize R0 to 8192 which is 32*256
+@8192
+D=A //D=8192
+@R0
+M=D  // R1 = 8192
+

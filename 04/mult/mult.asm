@@ -26,3 +26,10 @@ D=M  //D=RAM[0]
 @R2
 M=M+D  // RAM[2] = RAM[2] + RAM[0]
 
+//Decrement the value in R1 which is serving as the counter for the LOOP
+@R1
+M=M-1 // R=R1-1
+
+//make the program jump back to the LOOP
+@LOOP
+0;JMP //goto LOOP

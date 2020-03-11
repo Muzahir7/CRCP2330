@@ -26,3 +26,12 @@ D=M
 D;JEQ  //if no key pressed take the program to label WHITE
 @BLACK
 0;JMP  //if a key is pressed take the program to label BLACK
+
+(WHITE)
+@SCREEN  //loads first address of the screen
+D=A
+@R0
+A=D+M
+M=-1
+@LOOP
+0;JMP

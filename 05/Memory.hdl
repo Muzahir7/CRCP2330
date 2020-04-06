@@ -33,5 +33,7 @@ CHIP Memory {
 
     RAM16K(in=in,load=ram_load,address=address[0..13],out=ram_out);
 
-    
+    Screen(in=in,load=scrn_load,address=address[0..12],out=scrn_out);
+
+    Keyboard(out=kb_out);
 }

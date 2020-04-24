@@ -44,4 +44,10 @@ CHIP CPU {
     Not(in=instruction[15], out=inA);
     Not(in=inA, out=inC);
 
+    And(a=instruction[5], b=inC, out=outSel);
+    Mux16(a=instruction, b=ALUout, sel=outSel, out=regA);
+    Or(a=inA, b=toRegA, out=loadA);
+    ARegister(in=toRegA, load=loadA, out=outA);
+    
+
 }

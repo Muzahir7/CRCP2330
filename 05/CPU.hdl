@@ -69,5 +69,5 @@ CHIP CPU {
     Or(a=jFzrORng, b=jFpos, out=jToA);
     And(a=inC, b=jToA, out=loadPC);
     Not(in=loadPC, out=ngLoadPC);
-    PC(in=outA, inc=ngLoadPC, load=loadPC, reset=reset, out[0..14]=PC);
+    PC(in=outA, inc=ngLoadPC, load=loadPC, reset=reset, out[0..14]=pc);
 }

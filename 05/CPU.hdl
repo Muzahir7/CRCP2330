@@ -55,5 +55,8 @@ CHIP CPU {
     Mux16(a=outA, b=inM, sel=instruction[12], out=outAorM);
 
     ALU(x=outD, y=outAorM, zx=instruction[11], nx=instruction[10], zy=instruction[9], ny=instruction[8], f=instruction[7], no=instruction[6], out=ALUout, zr=zrOut, ng=ngOut);
-    
+
+    And(in=inC, b=instruction[3], out=writeM);
+    Or16(a=false, b=ALUout, out=outM);
+    Or16(a=false, b=outA, out[0..14]=addrM);
 }

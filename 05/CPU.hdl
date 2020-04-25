@@ -59,4 +59,15 @@ CHIP CPU {
     And(in=inC, b=instruction[3], out=writeM);
     Or16(a=false, b=ALUout, out=outM);
     Or16(a=false, b=outA, out[0..14]=addrM);
+
+    Or(a=zrOut, b=ngOut, out=zrORng);
+    Not(in=zrORng, out=pos);
+    And(a=zrOut, b=instruction[1], out=jFzr);
+    And(a=ngOut, b=instruction[2], out=jFng);
+    And(a=pos, b=instruction[0], out=jFpos);
+    Or(a=jFzr, b=jFng, out=jFzrORng);
+    Or(a=jFzrORng, b=jFpos, out=jToA);
+    And(a=inC, b=jToA, out=loadPC);
+    Not(in=loadPC, out=ngLoadPC);
+    PC(in=outA, inc=ngLoadPC, load=loadPC, reset=reset, out[0..14]=PC);
 }

@@ -45,20 +45,22 @@ CHIP CPU {
     Not(in=inA, out=inC);
 
     And(a=instruction[5], b=inC, out=outSel);
-    Mux16(a=instruction, b=ALUout, sel=outSel, out=regA);
+    Mux16(a=instruction, b=ALUout, sel=outSel, out=toRegA);
     
-    Or(a=inA, b=toRegA, out=loadA);
+    Or(a=inA, b=outSel, out=loadA);
     ARegister(in=toRegA, load=loadA, out=outA);
-    And(a=instruction[4], b=inC, out=loadD);
-    DRegister(in=ALUout, load-loadD, out=outD);
 
     Mux16(a=outA, b=inM, sel=instruction[12], out=outAorM);
 
-    ALU(x=outD, y=outAorM, zx=instruction[11], nx=instruction[10], zy=instruction[9], ny=instruction[8], f=instruction[7], no=instruction[6], out=ALUout, zr=zrOut, ng=ngOut);
+    And(a=instruction[4], b=inC, out=loadD);
+    DRegister(in=ALUout, load=loadD, out=outD);
 
-    And(in=inC, b=instruction[3], out=writeM);
+
+    ALU(x=outD, y=outAorM, zx=instruction[11], nx=instruction[10], zy=instruction[9], ny=instruction[8], f=instruction[7], no=instruction[6], out=ALUout, zr=zrOut, ng=ngOut);
+  
     Or16(a=false, b=ALUout, out=outM);
-    Or16(a=false, b=outA, out[0..14]=addrM);
+    Or16(a=false, b=outA, out[0..14]=addressM);
+    And(a=inC, b=instruction[3], out=writeM);
 
     Or(a=zrOut, b=ngOut, out=zrORng);
     Not(in=zrORng, out=pos);

@@ -50,6 +50,17 @@ class Cat{
          return cat.getSize();
    }
 
+   //more fficient way of detecting collision using center of square
+      method int getCenterX(){
+         return cat.getCenterX();
+      }
+      method int getCenterY(){
+         return cat.getCenterY();
+      }
+
+
+
+
    //methods to be used in calculation of collisions of two squares
       method int rCorX(){ //right corner x pos.
          return cat.rCorX();

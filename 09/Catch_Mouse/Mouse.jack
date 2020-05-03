@@ -50,6 +50,16 @@ class Mouse{
    		return mouse.getSize();
    }
 
+   //more fficient way of detecting collision using center of square
+   	method int getCenterX(){
+   		return mouse.getCenterX();
+   	}
+   	method int getCenterY(){
+   		return mouse.getCenterY();
+   	}
+
+
+
    //methods to be used in calculation of collisions of two squares
    	method int rCorX(){ //right corner x pos.
    		return mouse.rCorX();

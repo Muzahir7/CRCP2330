@@ -94,3 +94,93 @@ pop pointer 0
 push this 0
 call Square.getYPos 1
 return
+function Cat.getSize 0
+push argument 0
+pop pointer 0
+push this 0
+call Square.getSize 1
+return
+function Cat.rCorX 0
+push argument 0
+pop pointer 0
+push this 0
+call Square.rCorX 1
+return
+function Cat.rCorY 0
+push argument 0
+pop pointer 0
+push this 0
+call Square.rCorY 1
+return
+function Cat.bCorX 0
+push argument 0
+pop pointer 0
+push this 0
+call Square.bCorX 1
+return
+function Cat.bCorY 0
+push argument 0
+pop pointer 0
+push this 0
+call Square.bCorY 1
+return
+function Cat.dCorX 0
+push argument 0
+pop pointer 0
+push this 0
+call Square.dCorX 1
+return
+function Cat.dCorY 0
+push argument 0
+pop pointer 0
+push this 0
+call Square.dCorY 1
+return
+function Cat.tMidX 0
+push argument 0
+pop pointer 0
+push this 0
+call Square.tMidX 1
+return
+function Cat.tMidY 0
+push argument 0
+pop pointer 0
+push this 0
+call Square.tMidY 1
+return
+function Cat.lMidX 0
+push argument 0
+pop pointer 0
+push this 0
+call Square.lMidX 1
+return
+function Cat.lMidY 0
+push argument 0
+pop pointer 0
+push this 0
+call Square.lMidY 1
+return
+function Cat.rMidX 0
+push argument 0
+pop pointer 0
+push this 0
+call Square.rMidX 1
+return
+function Cat.rMidY 0
+push argument 0
+pop pointer 0
+push this 0
+call Square.rMidY 1
+return
+function Cat.bMidX 0
+push argument 0
+pop pointer 0
+push this 0
+call Square.bMidX 1
+return
+function Cat.bMidY 0
+push argument 0
+pop pointer 0
+push this 0
+call Square.bMidY 1
+return

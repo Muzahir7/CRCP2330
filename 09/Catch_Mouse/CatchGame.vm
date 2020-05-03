@@ -49,14 +49,11 @@ pop temp 0
 goto WHILE_EXP1
 label WHILE_END1
 push local 0
-push constant 81
+push constant 32
 eq
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
-push constant 0
-not
-pop this 2
 label IF_FALSE0
 push local 0
 push constant 131
@@ -166,16 +163,4 @@ label WHILE_END2
 goto WHILE_EXP0
 label WHILE_END0
 push constant 0
-return
-function CatchGame.setExit 0
-push argument 0
-pop pointer 0
-push argument 1
-pop this 2
-push constant 0
-return
-function CatchGame.getExit 0
-push argument 0
-pop pointer 0
-push this 2
 return

@@ -46,4 +46,57 @@ class Cat{
    method int getY(){
    		return cat.getYPos();
    }
+   method int getSize(){
+         return cat.getSize();
+   }
+
+   //methods to be used in calculation of collisions of two squares
+      method int rCorX(){ //right corner x pos.
+         return cat.rCorX();
+      }
+      method int rCorY(){ //right corner y pos.
+         return cat.rCorY();
+      }
+
+      method int bCorX(){ //bottom corner x pos.
+         return cat.bCorX();
+      }
+      method int bCorY(){ //bottom corner x pos.
+         return cat.bCorY();
+      }
+
+      method int dCorX(){ //diagonal corner x pos.
+         return cat.dCorX();
+      }
+      method int dCorY(){ //diagonal corner y pos.
+         return cat.dCorY();
+      }
+
+      method int tMidX(){ //top mid x
+         return cat.tMidX();
+      }
+      method int tMidY(){ //top mid y
+         return cat.tMidY();
+      }
+
+      method int lMidX(){ //left mid x
+         return cat.lMidX();
+      }
+      method int lMidY(){ //left mid y
+         return cat.lMidY();
+      }
+
+      method int rMidX(){ //right mid x
+         return cat.rMidX();
+      }
+      method int rMidY(){ //right mid y
+         return cat.rMidY();
+      }
+
+      method int bMidX(){ //bottom mid x
+         return cat.bMidX();
+      }
+      method int bMidY(){ //bottom mid y
+         return cat.bMidY();
+      }
 }

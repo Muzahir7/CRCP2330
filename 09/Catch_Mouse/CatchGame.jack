@@ -28,16 +28,19 @@ class CatchGame{
             do tom.moveCat();
         }
          
-        if (key = 81)  { let exit = true; }     // q key
+        if (key = 32)  {  // space bar
+        	let exit = true;
+        	
+        }     
         if (key = 131) { do jerry.setDir(8);}   // up arrow
         if (key = 133) { do jerry.setDir(2);}   // down arrow
         if (key = 130) { do jerry.setDir(4); }   // left arrow
         if (key = 132) { do jerry.setDir(6); }   // right arrow
 
-        if (key = 87) { do tom.setDir(8);}   // up arrow
-        if (key = 83) { do tom.setDir(2);}   // down arrow
-        if (key = 65) { do tom.setDir(4); }   // left arrow
-        if (key = 68) { do tom.setDir(6); }   // right arrow
+        if (key = 87) { do tom.setDir(8);}   // key W
+        if (key = 83) { do tom.setDir(2);}   // key S
+        if (key = 65) { do tom.setDir(4); }   // key A
+        if (key = 68) { do tom.setDir(6); }   // key D
 
         while (~(key = 0)) {
             let key = Keyboard.keyPressed();
@@ -49,13 +52,4 @@ class CatchGame{
       return;
    }
 
-   //getter and setter for exit
-   method void setExit(boolean b){
-   		let exit = b;
-   		return;
-   }
-
-   method boolean getExit(){
-   		return exit;
-   }
 }

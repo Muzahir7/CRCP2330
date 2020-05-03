@@ -1,37 +1,65 @@
 class Mouse{
 	// The mouse's screen location (in pixels)
-    field Square jerry;
+    field Square mouse;
+    field int dir;
+    //field boolean exit;
 
     //constructs the mouse
    constructor Mouse new() {
-      let jerry = Square.new(0, 240, 20);
+      let mouse = Square.new(0, 0, 30);
+      let dir = 0;
+      //let exit = true;
       return this;
    }
 
    //dispose mouse
    method void dispose() {
-      do jerry.dispose();
+      do mouse.dispose();
       do Memory.deAlloc(this);
       return;
    }
 
-   method void runMouse() {
-      var char key;  // the key currently pressed by the user
-      
-      
-      while (true) {
-         while (key = 0) {
-            let key = Keyboard.keyPressed();
-         }
-         if (key = 131) { do jerry.moveUp(); }   // up arrow
-         if (key = 133) { do jerry.moveDown(); }   // down arrow
-         if (key = 130) { do jerry.moveLeft(); }   // left arrow
-         if (key = 132) { do jerry.moveRight(); }   // right arrow
-
-         while (~(key = 0)) {
-            let key = Keyboard.keyPressed();
-         }
-     } // while
-     return;
+   method void moveMouse() {
+      if (dir = 8) { do mouse.moveUp(); }
+      if (dir = 2) { do mouse.moveDown(); }
+      if (dir = 4) { do mouse.moveLeft(); }
+      if (dir = 6) { do mouse.moveRight(); }
+      do Sys.wait(50);  // delays the next movement
+      return;
    }
+
+   method void runMouse() {
+      var char key;
+      var boolean exit;
+      let exit = false;
+
+      while(~exit){
+      	while (key = 0) {
+            let key = Keyboard.keyPressed();
+            do moveMouse();
+        }
+        if (key = 81)  { let exit = true; }     // q key
+        if (key = 131) { let dir = 8; }   // up arrow
+        if (key = 133) { let dir = 2; }   // down arrow
+        if (key = 130) { let dir = 4; }   // left arrow
+        if (key = 132) { let dir = 6; }   // right arrow
+
+        while (~(key = 0)) {
+            let key = Keyboard.keyPressed();
+            do moveMouse();
+
+      	}
+      }
+      return;
+   }
+
+   //getter and setter for exit
+   //method void setExit(boolean b){
+   	//	let exit = b;
+   	//	return;
+   //}
+
+   //method boolean getExit(){
+   	//	return exit;
+   //}
 }

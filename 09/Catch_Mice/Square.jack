@@ -8,7 +8,7 @@ class Square {
    		let xPos = x;
    		let yPos = y;
    		let size = s;
-   		do show();
+   		
    		return this;
    	}
 
@@ -21,14 +21,14 @@ class Square {
    //shows the square on the screen
    method void show() {
       	do Screen.setColor(true);
-      	do Screen.drawRectangle(x, y, x + size, y + size);
+      	do Screen.drawRectangle(xPos, yPos, xPos + size, yPos + size);
       	return;
    }
 
    //hides the square
    method void hide(){
    		do Screen.setColor(false);
-   		do Screen.drawRectangle(x, y, x + size, y + size);
+   		do Screen.drawRectangle(xPos, yPos, xPos + size, yPos + size);
       	return;
    }
 }

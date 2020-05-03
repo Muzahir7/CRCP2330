@@ -29,8 +29,9 @@ class CatchGame{
         }
          
         if (key = 32)  {  // space bar
-        	let exit = true;
+        	//let exit = true;
         	
+
         }     
         if (key = 131) { do jerry.setDir(8);}   // up arrow
         if (key = 133) { do jerry.setDir(2);}   // down arrow

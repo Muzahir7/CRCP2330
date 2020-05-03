@@ -6,7 +6,7 @@ class Mouse{
 
     //constructs the mouse
    constructor Mouse new() {
-      let mouse = Square.new(0, 0, 30);
+      let mouse = Square.new(0, 0, 20);
       let dir = 0;
       
       return this;
@@ -46,4 +46,9 @@ class Mouse{
    method int getY(){
    		return mouse.getYPos();
    }
+   method int getSize(){
+   		return mouse.getSize();
+   }
+
+   
 }

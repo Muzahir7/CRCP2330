@@ -1,0 +1,4 @@
+class Mice{
+	// The mouse's screen location (in pixels)
+    field int x, y;
+}

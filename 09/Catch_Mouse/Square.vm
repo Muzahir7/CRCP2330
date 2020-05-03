@@ -210,7 +210,7 @@ return
 function Square.moveDown 1
 push argument 0
 pop pointer 0
-push constant 255
+push constant 254
 pop local 0
 push this 1
 push this 2
@@ -257,4 +257,14 @@ call Screen.drawRectangle 4
 pop temp 0
 label IF_FALSE0
 push constant 0
+return
+function Square.getXPos 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function Square.getYPos 0
+push argument 0
+pop pointer 0
+push this 1
 return

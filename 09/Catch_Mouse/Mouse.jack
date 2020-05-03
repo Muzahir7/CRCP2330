@@ -2,13 +2,13 @@ class Mouse{
 	// The mouse's screen location (in pixels)
     field Square mouse;
     field int dir;
-    //field boolean exit;
+    
 
     //constructs the mouse
    constructor Mouse new() {
       let mouse = Square.new(0, 0, 30);
       let dir = 0;
-      //let exit = true;
+      
       return this;
    }
 
@@ -28,38 +28,22 @@ class Mouse{
       return;
    }
 
-   method void runMouse() {
-      var char key;
-      var boolean exit;
-      let exit = false;
-
-      while(~exit){
-      	while (key = 0) {
-            let key = Keyboard.keyPressed();
-            do moveMouse();
-        }
-        if (key = 81)  { let exit = true; }     // q key
-        if (key = 131) { let dir = 8; }   // up arrow
-        if (key = 133) { let dir = 2; }   // down arrow
-        if (key = 130) { let dir = 4; }   // left arrow
-        if (key = 132) { let dir = 6; }   // right arrow
-
-        while (~(key = 0)) {
-            let key = Keyboard.keyPressed();
-            do moveMouse();
-
-      	}
-      }
-      return;
+   //dir getters and setters
+   method int getDir(){
+   		return dir;
+   }
+   method void setDir(int d){
+   		let dir = d;
+   		return;
    }
 
-   //getter and setter for exit
-   //method void setExit(boolean b){
-   	//	let exit = b;
-   	//	return;
-   //}
+   
 
-   //method boolean getExit(){
-   	//	return exit;
-   //}
+   //getters to get mouse location
+   method int getX(){
+   		return mouse.getXPos();
+   }
+   method int getY(){
+   		return mouse.getYPos();
+   }
 }

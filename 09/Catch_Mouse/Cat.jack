@@ -1,0 +1,49 @@
+class Cat{
+	// The cat's screen location (in pixels)
+    field Square cat;
+    field int dir;
+    
+
+    //constructs the cat
+   constructor Cat new() {
+      let cat = Square.new(200, 200, 40);
+      let dir = 0;
+      
+      return this;
+   }
+
+   //dispose cat
+   method void dispose() {
+      do cat.dispose();
+      do Memory.deAlloc(this);
+      return;
+   }
+
+   method void moveCat() {
+      if (dir = 8) { do cat.moveUp(); }
+      if (dir = 2) { do cat.moveDown(); }
+      if (dir = 4) { do cat.moveLeft(); }
+      if (dir = 6) { do cat.moveRight(); }
+      do Sys.wait(50);  // delays the next movement
+      return;
+   }
+
+   //dir getters and setters
+   method int getDir(){
+   		return dir;
+   }
+   method void setDir(int d){
+   		let dir = d;
+   		return;
+   }
+
+   
+
+   //getters to get cat location
+   method int getX(){
+   		return cat.getXPos();
+   }
+   method int getY(){
+   		return cat.getYPos();
+   }
+}

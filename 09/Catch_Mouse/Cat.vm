@@ -1,17 +1,17 @@
-function Mouse.new 0
+function Cat.new 0
 push constant 2
 call Memory.alloc 1
 pop pointer 0
-push constant 0
-push constant 0
-push constant 30
+push constant 200
+push constant 200
+push constant 40
 call Square.new 3
 pop this 0
 push constant 0
 pop this 1
 push pointer 0
 return
-function Mouse.dispose 0
+function Cat.dispose 0
 push argument 0
 pop pointer 0
 push this 0
@@ -22,7 +22,7 @@ call Memory.deAlloc 1
 pop temp 0
 push constant 0
 return
-function Mouse.moveMouse 0
+function Cat.moveCat 0
 push argument 0
 pop pointer 0
 push this 1
@@ -70,25 +70,25 @@ call Sys.wait 1
 pop temp 0
 push constant 0
 return
-function Mouse.getDir 0
+function Cat.getDir 0
 push argument 0
 pop pointer 0
 push this 1
 return
-function Mouse.setDir 0
+function Cat.setDir 0
 push argument 0
 pop pointer 0
 push argument 1
 pop this 1
 push constant 0
 return
-function Mouse.getX 0
+function Cat.getX 0
 push argument 0
 pop pointer 0
 push this 0
 call Square.getXPos 1
 return
-function Mouse.getY 0
+function Cat.getY 0
 push argument 0
 pop pointer 0
 push this 0

@@ -1,9 +1,11 @@
 class Main {
     function void main() {
-        var Mouse jerry;
-        let jerry = Mouse.new();
-        do jerry.runMouse();
-        do jerry.dispose();
+        var CatchGame game;
+        let game = CatchGame.new();
+
+        do game.run();
+        do game.dispose();
+
         return;
     }
 }

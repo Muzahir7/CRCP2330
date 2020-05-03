@@ -1,0 +1,61 @@
+class CatchGame{
+	field Mouse jerry;
+	field Cat tom;
+	field boolean exit;
+
+	constructor CatchGame new() {
+      let jerry = Mouse.new();
+      let tom = Cat.new();
+      let exit = false;
+      return this;
+   }
+
+   method void dispose() {
+      do jerry.dispose();
+      do tom.dispose();
+      do Memory.deAlloc(this);
+      return;
+   }
+
+   method void run() {
+      var char key;
+      
+
+      while(~exit){
+      	while (key = 0) {
+            let key = Keyboard.keyPressed();
+            do jerry.moveMouse();
+            do tom.moveCat();
+        }
+         
+        if (key = 81)  { let exit = true; }     // q key
+        if (key = 131) { do jerry.setDir(8);}   // up arrow
+        if (key = 133) { do jerry.setDir(2);}   // down arrow
+        if (key = 130) { do jerry.setDir(4); }   // left arrow
+        if (key = 132) { do jerry.setDir(6); }   // right arrow
+
+        if (key = 87) { do tom.setDir(8);}   // up arrow
+        if (key = 83) { do tom.setDir(2);}   // down arrow
+        if (key = 65) { do tom.setDir(4); }   // left arrow
+        if (key = 68) { do tom.setDir(6); }   // right arrow
+
+        while (~(key = 0)) {
+            let key = Keyboard.keyPressed();
+            do jerry.moveMouse();
+            do tom.moveCat();
+
+      	}
+      }
+      return;
+   }
+
+   //getter and setter for exit
+   method void setExit(boolean b){
+   		let exit = b;
+   		return;
+   }
+
+   method boolean getExit(){
+   		return exit;
+   }
+}

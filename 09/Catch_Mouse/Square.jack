@@ -8,7 +8,7 @@ class Square {
    		let xPos = x;
    		let yPos = y;
    		let size = s;
-   		
+   		do show();
    		return this;
    	}
 
@@ -76,8 +76,8 @@ class Square {
 
    	//move square up
    method void moveDown(){
-   		var int dEdge;
-   		let dEdge = 255;
+   		var int uEdge;
+   		let uEdge = 255;
    		if ((yPos + size) < uEdge) {
          	do Screen.setColor(false);
          	do Screen.drawRectangle(xPos, yPos, xPos + size, yPos + 1);

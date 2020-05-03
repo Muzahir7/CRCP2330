@@ -1,8 +1,9 @@
 class Main {
     function void main() {
-        var Square cat;
-        let cat = Square.new(20, 20, 30);
-        do cat.show();
+        var Mouse jerry;
+        let jerry = Mouse.new();
+        do jerry.runMouse();
+        do jerry.dispose();
         return;
     }
 }

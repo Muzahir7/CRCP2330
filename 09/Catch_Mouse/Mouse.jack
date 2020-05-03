@@ -14,4 +14,24 @@ class Mouse{
       do Memory.deAlloc(this);
       return;
    }
+
+   method void runMouse() {
+      var char key;  // the key currently pressed by the user
+      
+      
+      while (true) {
+         while (key = 0) {
+            let key = Keyboard.keyPressed();
+         }
+         if (key = 131) { do jerry.moveUp(); }   // up arrow
+         if (key = 133) { do jerry.moveDown(); }   // down arrow
+         if (key = 130) { do jerry.moveLeft(); }   // left arrow
+         if (key = 132) { do jerry.moveRight(); }   // right arrow
+
+         while (~(key = 0)) {
+            let key = Keyboard.keyPressed();
+         }
+     } // while
+     return;
+   }
 }

@@ -1,11 +1,11 @@
 function Main.main 1
-push constant 20
-push constant 20
-push constant 30
-call Square.new 3
+call Mouse.new 0
 pop local 0
 push local 0
-call Square.show 1
+call Mouse.runMouse 1
+pop temp 0
+push local 0
+call Mouse.dispose 1
 pop temp 0
 push constant 0
 return

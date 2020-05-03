@@ -1,4 +1,17 @@
-class Mice{
+class Mouse{
 	// The mouse's screen location (in pixels)
-    field int x, y;
+    field Square jerry;
+
+    //constructs the mouse
+   constructor Mouse new() {
+      let jerry = Square.new(0, 240, 20);
+      return this;
+   }
+
+   //dispose mouse
+   method void dispose() {
+      do jerry.dispose();
+      do Memory.deAlloc(this);
+      return;
+   }
 }

@@ -100,6 +100,18 @@ pop pointer 0
 push this 0
 call Square.getSize 1
 return
+function Cat.getCenterX 0
+push argument 0
+pop pointer 0
+push this 0
+call Square.getCenterX 1
+return
+function Cat.getCenterY 0
+push argument 0
+pop pointer 0
+push this 0
+call Square.getCenterY 1
+return
 function Cat.rCorX 0
 push argument 0
 pop pointer 0

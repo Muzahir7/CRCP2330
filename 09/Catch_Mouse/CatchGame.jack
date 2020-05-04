@@ -19,7 +19,11 @@ class CatchGame{
 
    method void run() {
       var char key;
-      
+      //distance between the centers of the two squares
+      var int distX; 
+      var int distY;
+      var int minDist;
+      let minDist = (jerry.getSize()/2) + (tom.getSize()/2) + 1;
 
       while(~exit){
       	while (key = 0) {
@@ -29,8 +33,15 @@ class CatchGame{
         }
          
         if (key = 32)  {  // space bar
-        	//let exit = true;
         	
+        	let distX = Math.abs(jerry.getCenterX() - tom.getCenterX());
+        	let distY = Math.abs(jerry.getCenterY() - tom.getCenterY());
+
+        	//condition to check collision
+        	if ((distX < minDist) & (distY < minDist)){
+        		do Output.printString("TOM WINS THE CHASE!!!!!");
+        		let exit = true;
+        	}
 
         }     
         if (key = 131) { do jerry.setDir(8);}   // up arrow

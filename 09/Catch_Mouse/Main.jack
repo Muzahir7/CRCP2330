@@ -1,10 +1,10 @@
 class Main {
     function void main() {
-        var CatchGame game;
+        var CatchGame game; //creates a CatchGame object
         let game = CatchGame.new();
 
-        do game.run();
-        do game.dispose();
+        do game.run();  // ruuns the game
+        do game.dispose();  //disposes the game
 
         return;
     }

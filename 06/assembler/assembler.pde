@@ -11,7 +11,7 @@ import java.util.*;
 Dictionary jumpDict = new Hashtable();
 Dictionary destDict = new Hashtable();
 Dictionary compDict = new Hashtable();
-Dictionary symbolsDict = new Hashtable();
+Dictionary symDict = new Hashtable();
  
 
 void setup() {
@@ -65,10 +65,35 @@ compDict.put("M-D", "111000111");
 compDict.put("D&M", "111000000");
 compDict.put("D|M", "111010101");
 
+//putting the key-value pair in symDict
+symDict.put("SP", "0");
+symDict.put("LCL", "1");
+symDict.put("ARG", "2");
+symDict.put("THIS", "3");
+symDict.put("THAT", "4");
+symDict.put("R0", "0");
+symDict.put("R1", "1");
+symDict.put("R2", "2");
+symDict.put("R3", "3");
+symDict.put("R4", "4");
+symDict.put("R5", "5");
+symDict.put("R6", "6");
+symDict.put("R7", "7");
+symDict.put("R8", "8");
+symDict.put("R9", "9");
+symDict.put("R10", "10");
+symDict.put("R11", "11");
+symDict.put("R12", "12");
+symDict.put("R13", "13");
+symDict.put("R14", "14");
+symDict.put("R15", "15");
+symDict.put("SCREEN", "16384");
+symDict.put("KBD", "24576");
+
 
 }//setup ends
 
 void draw() {
   
-println(jumpDict.get("JMP"));
+println(symDict.get("R15"));
 }

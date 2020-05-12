@@ -109,7 +109,8 @@ println(to_15_bit_str("25"));
 println(isNumeric("2555858T"));
 println(symDict);
 
-println(parseInsA("R15"));
+println(parseInsA("@SCREEN"));
+println(parseInsC("D;JEQ"));
 
 }//setup ends
 
@@ -184,6 +185,31 @@ String parseInsA(String str){
   }
   return "0" + to_15_bit_str(symDict.get(line));
 }
+
+//translates c-instruction to binary
+String parseInsC(String line){
+  String jump = "000";
+  String dest = "000";
+  
+  //Handle jump
+  String[] arrOfStr = line.split(";"); 
+  if (arrOfStr.length == 2){  //if its a jump
+    jump = jumpDict.get(arrOfStr[1]);
+  }
+  
+  //Handle dest
+  String[] arrOfStr2 = arrOfStr[0].split("="); 
+  if (arrOfStr2.length == 2){
+    dest = destDict.get(arrOfStr2[0]);
+  }
+  
+  //Handle comp
+  String comp = compDict.get(arrOfStr2[arrOfStr2.length-1]);
+  
+  return "1" + comp + dest + jump;
+  
+}
+
 
 //Borrowed from: https://www.techiedelight.com/determine-string-valid-number-java/
 //checks if a string is numeric

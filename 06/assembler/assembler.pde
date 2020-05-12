@@ -4,7 +4,7 @@ import java.util.*;
 //variables to contain .asm and .hack strings
   String asmCode[]; //array for loading in the asm code
   String binCode[]; // array for dumping in the bin code
-  String filename = "";  //put the . asm file absolute path in between the quotes
+  String filename = "C:/SMU/Creative_Computing/Nand_to_Tetris/nand2tetris/projects/06/add/Add.asm";  //put the . asm file absolute path in between the quotes
   
 
 //dictionaries to hold hack bit commands  of jump, dest, comp, and symbols
@@ -90,12 +90,13 @@ symDict.put("R15", "15");
 symDict.put("SCREEN", "16384");
 symDict.put("KBD", "24576");
 
+loadData();
 
 }//setup ends
 
 void draw() {
   
-println(symDict.get("R15"));
+println(asmCode[0]);
 }// draw ends
 
 // This function loads the asm code form .asm file into the array of strings

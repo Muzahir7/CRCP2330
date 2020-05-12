@@ -107,10 +107,14 @@ parseLabels();
 
 println(to_15_bit_str("25"));
 println(isNumeric("2555858T"));
+println(parseLine("(#SCREEN#)"));
 println(symDict);
 
 println(parseInsA("@SCREEN"));
+println(parseLine("@SCREEN"));
 println(parseInsC("D;JEQ"));
+println(parseLine("D;JEQ"));
+
 
 }//setup ends
 
@@ -208,7 +212,22 @@ String parseInsC(String line){
   
   return "1" + comp + dest + jump;
   
-}
+} //end of parseInsC
+
+String parseLine(String line){ //translates a single line to binary returns it in a string
+  String parsedLine;
+  if (line.startsWith("(")){
+    //its a label and already handled in parseLabel
+    return null;
+  }
+  else if (line.startsWith("@")){ //if A instruction
+    parsedLine = parseInsA(line);
+  }
+  else {  //its a C instruction
+    parsedLine = parseInsC(line);
+  }
+  return parsedLine;
+} //end of parseLine
 
 
 //Borrowed from: https://www.techiedelight.com/determine-string-valid-number-java/

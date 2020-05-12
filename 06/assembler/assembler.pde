@@ -3,11 +3,12 @@ import java.util.*;
 
 //variables to contain .asm and .hack strings
   String asmCode[]; //array for loading in the asm code
-  String asmArr[];
+  String asmArr[]; //contains the cleansed assembly code
   Vector<String> asmVec= new Vector<String>(); //create a vector to store cleaned asm code
-  String binCode[]; // array for dumping in the bin code
+  //String binCode[]; // array for dumping in the bin code
   String filename = "C:/SMU/Creative_Computing/Nand_to_Tetris/nand2tetris/projects/06/add/Add.asm";  //put the . asm file absolute path in between the quotes
   int nextAddr = 16;
+  String binCode = "";
 
 //dictionaries to hold hack bit commands  of jump, dest, comp, and symbols
 
@@ -105,16 +106,11 @@ cleanData();
 parseLabels();
 //labels are parsed and symbols are stored in symDict
 
-println(to_15_bit_str("25"));
-println(isNumeric("2555858T"));
-println(parseLine("(#SCREEN#)"));
-println(symDict);
 
-println(parseInsA("@SCREEN"));
-println(parseLine("@SCREEN"));
-println(parseInsC("D;JEQ"));
-println(parseLine("D;JEQ"));
 
+parse();
+//asm code is translated to hack bin and stored in binCode
+println(binCode);
 
 }//setup ends
 
@@ -228,6 +224,17 @@ String parseLine(String line){ //translates a single line to binary returns it i
   }
   return parsedLine;
 } //end of parseLine
+
+void parse(){ //converts all code line by line to binary and puts it in a string
+  for (int i = 0; i < asmArr.length; i++){
+    String binLine = parseLine(asmArr[i]);
+    if (!(binLine == null)){
+      binCode = binCode + binLine + "\n";
+    }
+
+  }
+
+}//parse ends
 
 
 //Borrowed from: https://www.techiedelight.com/determine-string-valid-number-java/

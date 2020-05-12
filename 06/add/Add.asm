@@ -12,4 +12,4 @@ D=D+A // c instruction
 @0
 M=D
 (LABELTEST)
-array     of      Strings    with     spaces    // this is all gonna be ignored 
+

@@ -90,17 +90,41 @@ symDict.put("R15", "15");
 symDict.put("SCREEN", "16384");
 symDict.put("KBD", "24576");
 
-loadData();
+/// Rest of the code for the process goes below
+
+loadData(); //calling the load function
+//have the loaded .asm file in asmCode[]. Now, need to clean the empty lines and lines that start with comment
+// or anything after the comments.
+
+cleanData();
+
 
 }//setup ends
 
 void draw() {
   
-println(asmCode[0]);
+
 }// draw ends
 
 // This function loads the asm code form .asm file into the array of strings
 // asmCode[]. each line of code stores in an element of the array
+
 void loadData(){
   asmCode = loadStrings(filename); // loads each line from input file into an elemenet of asmCode
 } // load data ends
+
+void cleanData(){
+  //removes comments and empty spaces from the asmCode string array
+  for (String line : asmCode){
+    String[] arrOfStr = line.split("//", 2); //ignore the elem at index 1. work with the element at index 0
+    if (arrOfStr[0] == null || arrOfStr[0] == ""){
+      //ignore it
+    }
+    else {
+      //remove the white spaces from the arrOfStr[0] and put it in the vector
+      arrOfStr[0] = arrOfStr[0].replaceAll("\\s", "");
+      
+    }
+    println(arrOfStr[0]);
+  } //for loop ends 
+} // cleanData ends 

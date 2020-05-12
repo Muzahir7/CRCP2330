@@ -7,13 +7,14 @@ import java.util.*;
   Vector<String> asmVec= new Vector<String>(); //create a vector to store cleaned asm code
   String binCode[]; // array for dumping in the bin code
   String filename = "C:/SMU/Creative_Computing/Nand_to_Tetris/nand2tetris/projects/06/add/Add.asm";  //put the . asm file absolute path in between the quotes
-  
+  int nextAddr = 16;
 
 //dictionaries to hold hack bit commands  of jump, dest, comp, and symbols
-Dictionary jumpDict = new Hashtable();
-Dictionary destDict = new Hashtable();
-Dictionary compDict = new Hashtable();
-Dictionary symDict = new Hashtable();
+
+HashMap<String, String> jumpDict = new HashMap<String, String>(); 
+HashMap<String, String> destDict = new HashMap<String, String>();
+HashMap<String, String> compDict = new HashMap<String, String>();
+HashMap<String, String> symDict = new HashMap<String, String>();
  
 
 void setup() {
@@ -105,6 +106,10 @@ parseLabels();
 //labels are parsed and symbols are stored in symDict
 
 println(to_15_bit_str("25"));
+println(isNumeric("2555858T"));
+println(symDict);
+
+println(parseInsA("R15"));
 
 }//setup ends
 
@@ -146,7 +151,7 @@ void parseLabels(){
   for (int i = 0; i < asmArr.length; i++){
       if (asmArr[i].startsWith("(")){
         String sym = asmArr[i].substring(1, asmArr[i].length()-1);
-        symDict.put(sym, lineNum);
+        symDict.put(sym, Integer.toString(lineNum));
       }
       else{
         lineNum++;
@@ -164,3 +169,37 @@ String to_15_bit_str(String str){
   String bin = Integer.toBinaryString(Integer.parseInt(str));
   return padLeftZeros(bin, 15);
 }
+
+//translates a A instrction to binary
+String parseInsA(String str){
+  String line = str.substring(1);
+  if (isNumeric(line)){
+    //line contains a string with numbers
+    return "0" + to_15_bit_str(line);
+  }
+  else if (!symDict.containsKey(line)){ //if ssymDict doesn't contain the key
+    //add the new symbol in the dictionary
+    symDict.put(line, Integer.toString(nextAddr));
+    nextAddr++;
+  }
+  return "0" + to_15_bit_str(symDict.get(line));
+}
+
+//Borrowed from: https://www.techiedelight.com/determine-string-valid-number-java/
+//checks if a string is numeric
+boolean isNumeric(String s) {
+    if (s == null || s.equals("")) {
+      return false;
+    }
+
+    for (int i = 0; i < s.length(); i++) {
+      char c = s.charAt(i);
+      if (c < '0' || c > '9') {
+        return false;
+      }
+    }
+    return true;
+}
+  
+  
+ 

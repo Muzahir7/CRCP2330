@@ -101,13 +101,10 @@ loadData(); //calling the load function
 cleanData();
 //you have the clean data in the asmVec
 
-
-String str = "(TOMCAT!)";
-println(str.substring(1, str.length()-1));
-
 parseLabels();
 //labels are parsed and symbols are stored in symDict
-println(symDict);
+
+println(to_15_bit_str("25"));
 
 }//setup ends
 
@@ -155,4 +152,15 @@ void parseLabels(){
         lineNum++;
       }
     }
+}
+
+//pads zeros at left of the string
+String padLeftZeros(String str, int n) {
+  return String.format("%1$" + n + "s", str).replace(' ', '0');
+}
+
+//Converts a given string to binary left padded to 15 bits
+String to_15_bit_str(String str){
+  String bin = Integer.toBinaryString(Integer.parseInt(str));
+  return padLeftZeros(bin, 15);
 }

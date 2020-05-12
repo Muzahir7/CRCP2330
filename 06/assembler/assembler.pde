@@ -110,7 +110,8 @@ parseLabels();
 
 parse();
 //asm code is translated to hack bin and stored in binCode
-println(binCode);
+
+writeHack();
 
 }//setup ends
 
@@ -251,6 +252,18 @@ boolean isNumeric(String s) {
       }
     }
     return true;
+}
+
+//writes the hack binary code to a .hack file
+void writeHack(){
+  
+  String temp=filename.replace('.',';');
+  String[] arrOfStr = temp.split(";");
+  String hackPath = arrOfStr[0] + ".hack";
+  String[] list = split(binCode, '\n');
+  saveStrings(hackPath, list);
+
+  
 }
   
   

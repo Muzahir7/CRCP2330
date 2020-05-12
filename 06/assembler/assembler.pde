@@ -98,9 +98,15 @@ loadData(); //calling the load function
 // or anything after the comments.
 
 cleanData();
+//you have the clean data in the asmVec
 
 
-println(asmVec);
+String str = "(TOMCAT!)";
+println(str.substring(1, str.length()-1));
+
+parseLabels();
+
+//println(asmVec);
 
 
 }//setup ends
@@ -131,4 +137,15 @@ void cleanData(){
       asmVec.add(arrOfStr[0]);  // adds the cleaned code to the asmVec
     }
   } //for loop ends 
-} // cleanData ends 
+} // cleanData ends
+
+void parseLabels(){
+  //parses the labels and updates the symDict
+  int lineNum = 0;
+   // Creating an iterator 
+   Iterator value = asmVec.iterator();
+        System.out.println("The iterator values are: "); 
+        while (value.hasNext()) { 
+            System.out.println(value.next()); 
+        }
+}

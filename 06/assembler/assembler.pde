@@ -1,12 +1,21 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Name  Muzahir Hussain
+// Project  Assembler
+// Description:  This project reads from a .asm file and converts that assembly code to hack binary code
+//               and saves that code to a .hack file in the same directory as .asm file
+//               Provide the absolute filepath of .asm file in the string variable filename
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 import java.util.*;
 
+String filename = "C:/SMU/Creative_Computing/Nand_to_Tetris/nand2tetris/projects/06/max/Max.asm";  //put the . asm file absolute path in between the quotes
 
 //variables to contain .asm and .hack strings
   String asmCode[]; //array for loading in the asm code
   String asmArr[]; //contains the cleansed assembly code
   Vector<String> asmVec= new Vector<String>(); //create a vector to store cleaned asm code
   //String binCode[]; // array for dumping in the bin code
-  String filename = "C:/SMU/Creative_Computing/Nand_to_Tetris/nand2tetris/projects/06/add/Add.asm";  //put the . asm file absolute path in between the quotes
+  
   int nextAddr = 16;
   String binCode = "";
 
@@ -266,7 +275,6 @@ void writeHack(){
 
   for (int i=0; i < list.length; i++){
     if (!(list[i].isEmpty())){
-      //println(list[i]);
       //write it to a vector
       hackVec.add(list[i]);
     }
@@ -275,6 +283,8 @@ void writeHack(){
 
   
   saveStrings(hackPath, hackArr);
+  
+  println("DONE SAVING FILE");
 
   
 }

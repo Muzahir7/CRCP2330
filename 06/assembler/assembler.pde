@@ -96,4 +96,10 @@ symDict.put("KBD", "24576");
 void draw() {
   
 println(symDict.get("R15"));
-}
+}// draw ends
+
+// This function loads the asm code form .asm file into the array of strings
+// asmCode[]. each line of code stores in an element of the array
+void loadData(){
+  asmCode = loadStrings(filename); // loads each line from input file into an elemenet of asmCode
+} // load data ends

@@ -3,6 +3,7 @@ import java.util.*;
 
 //variables to contain .asm and .hack strings
   String asmCode[]; //array for loading in the asm code
+  Vector asmVec = new Vector(); //create a vector to store cleaned asm code
   String binCode[]; // array for dumping in the bin code
   String filename = "C:/SMU/Creative_Computing/Nand_to_Tetris/nand2tetris/projects/06/add/Add.asm";  //put the . asm file absolute path in between the quotes
   
@@ -99,6 +100,9 @@ loadData(); //calling the load function
 cleanData();
 
 
+println(asmVec);
+
+
 }//setup ends
 
 void draw() {
@@ -117,14 +121,14 @@ void cleanData(){
   //removes comments and empty spaces from the asmCode string array
   for (String line : asmCode){
     String[] arrOfStr = line.split("//", 2); //ignore the elem at index 1. work with the element at index 0
-    if (arrOfStr[0] == null || arrOfStr[0] == ""){
+    arrOfStr[0] = arrOfStr[0].replaceAll("\\s", "");
+    if (arrOfStr[0].isEmpty()){
       //ignore it
     }
     else {
       //remove the white spaces from the arrOfStr[0] and put it in the vector
       arrOfStr[0] = arrOfStr[0].replaceAll("\\s", "");
-      
+      asmVec.add(arrOfStr[0]);  // adds the cleaned code to the asmVec
     }
-    println(arrOfStr[0]);
   } //for loop ends 
 } // cleanData ends 

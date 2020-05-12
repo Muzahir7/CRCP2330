@@ -261,7 +261,20 @@ void writeHack(){
   String[] arrOfStr = temp.split(";");
   String hackPath = arrOfStr[0] + ".hack";
   String[] list = split(binCode, '\n');
-  saveStrings(hackPath, list);
+  String[] hackArr;
+  Vector<String> hackVec= new Vector<String>();
+
+  for (int i=0; i < list.length; i++){
+    if (!(list[i].isEmpty())){
+      //println(list[i]);
+      //write it to a vector
+      hackVec.add(list[i]);
+    }
+  }
+  hackArr = hackVec.toArray(new String[hackVec.size()]);
+
+  
+  saveStrings(hackPath, hackArr);
 
   
 }

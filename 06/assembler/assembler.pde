@@ -3,7 +3,8 @@ import java.util.*;
 
 //variables to contain .asm and .hack strings
   String asmCode[]; //array for loading in the asm code
-  Vector asmVec = new Vector(); //create a vector to store cleaned asm code
+  String asmArr[];
+  Vector<String> asmVec= new Vector<String>(); //create a vector to store cleaned asm code
   String binCode[]; // array for dumping in the bin code
   String filename = "C:/SMU/Creative_Computing/Nand_to_Tetris/nand2tetris/projects/06/add/Add.asm";  //put the . asm file absolute path in between the quotes
   
@@ -105,9 +106,8 @@ String str = "(TOMCAT!)";
 println(str.substring(1, str.length()-1));
 
 parseLabels();
-
-//println(asmVec);
-
+//labels are parsed and symbols are stored in symDict
+println(symDict);
 
 }//setup ends
 
@@ -137,15 +137,22 @@ void cleanData(){
       asmVec.add(arrOfStr[0]);  // adds the cleaned code to the asmVec
     }
   } //for loop ends 
+  
+  //Converting Vector to String Array
+    asmArr = asmVec.toArray(new String[asmVec.size()]);
+    
 } // cleanData ends
 
 void parseLabels(){
   //parses the labels and updates the symDict
   int lineNum = 0;
-   // Creating an iterator 
-   Iterator value = asmVec.iterator();
-        System.out.println("The iterator values are: "); 
-        while (value.hasNext()) { 
-            System.out.println(value.next()); 
-        }
+  for (int i = 0; i < asmArr.length; i++){
+      if (asmArr[i].startsWith("(")){
+        String sym = asmArr[i].substring(1, asmArr[i].length()-1);
+        symDict.put(sym, lineNum);
+      }
+      else{
+        lineNum++;
+      }
+    }
 }
